@@ -14,6 +14,7 @@
 		3CCF0F282BF28FC4008F4D84 /* CutipaSoundBoard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CCF0F262BF28FC4008F4D84 /* CutipaSoundBoard.xcdatamodeld */; };
 		3CCF0F2A2BF28FC4008F4D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CCF0F292BF28FC4008F4D84 /* Assets.xcassets */; };
 		3CCF0F2D2BF28FC4008F4D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CCF0F2B2BF28FC4008F4D84 /* LaunchScreen.storyboard */; };
+		3CCF0F352BF29616008F4D84 /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCF0F342BF29616008F4D84 /* SoundViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3CCF0F292BF28FC4008F4D84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CCF0F2C2BF28FC4008F4D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CCF0F2E2BF28FC4008F4D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CCF0F342BF29616008F4D84 /* SoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				3CCF0F1F2BF28FC4008F4D84 /* SceneDelegate.swift */,
 				3CCF0F212BF28FC4008F4D84 /* ViewController.swift */,
 				3CCF0F232BF28FC4008F4D84 /* Main.storyboard */,
+				3CCF0F342BF29616008F4D84 /* SoundViewController.swift */,
 				3CCF0F292BF28FC4008F4D84 /* Assets.xcassets */,
 				3CCF0F2B2BF28FC4008F4D84 /* LaunchScreen.storyboard */,
 				3CCF0F2E2BF28FC4008F4D84 /* Info.plist */,
@@ -145,6 +148,7 @@
 				3CCF0F222BF28FC4008F4D84 /* ViewController.swift in Sources */,
 				3CCF0F1E2BF28FC4008F4D84 /* AppDelegate.swift in Sources */,
 				3CCF0F202BF28FC4008F4D84 /* SceneDelegate.swift in Sources */,
+				3CCF0F352BF29616008F4D84 /* SoundViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
