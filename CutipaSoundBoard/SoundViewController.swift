@@ -14,10 +14,12 @@ class SoundViewController: UIViewController {
     @IBOutlet weak var reproducirButton: UIButton!
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var agregarTapped: UIButton!
+    @IBOutlet weak var tiempoGrabacion: UILabel!
     
     var grabarAudio:AVAudioRecorder?
     var reproducirAudio:AVAudioPlayer?
     var audioURL:URL?
+    var timer: Timer?
     
     @IBAction func grabarTapped(_ sender: Any) {
         if grabarAudio!.isRecording{
@@ -25,10 +27,13 @@ class SoundViewController: UIViewController {
             grabarButton.setTitle("GRABAR", for: .normal)
             reproducirButton.isEnabled = true
             agregarTapped.isEnabled = true
+            timer?.invalidate()
+            
         }else{
             grabarAudio?.record()
             grabarButton.setTitle("DETENER", for: .normal)
             reproducirButton.isEnabled = false
+            iniciarTimer()
         }
     }
     
@@ -45,6 +50,7 @@ class SoundViewController: UIViewController {
         let grabacion = Grabacion(context: context)
         grabacion.nombre = nombreTextField.text
         grabacion.audio = NSData(contentsOf: audioURL!)! as Data
+        grabacion.duracion = tiempoGrabacion.text
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationController!.popViewController(animated: true)
     }
@@ -54,6 +60,11 @@ class SoundViewController: UIViewController {
         configurarGrabacion()
         reproducirButton.isEnabled = false
         agregarTapped.isEnabled = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
     }
     
     func configurarGrabacion(){
@@ -80,6 +91,18 @@ class SoundViewController: UIViewController {
             grabarAudio!.prepareToRecord()
         }catch let error as NSError{
             print(error)
+        }
+    }
+    
+    func iniciarTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            if let grabarAudio = self.grabarAudio, grabarAudio.isRecording {
+                let tiempoActual = grabarAudio.currentTime
+                let minutos = Int(tiempoActual / 60)
+                let segundos = Int(tiempoActual) % 60
+                self.tiempoGrabacion.text = String(format: "%02d:%02d", minutos, segundos)
+            }
         }
     }
     
